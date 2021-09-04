@@ -189,7 +189,7 @@ if __name__ == "__main__":
     scheduler.add_job(func=updateDatabase, trigger="interval", days=1)
     scheduler.start()
 
-    app.run(debug=True, use_reloader=False, port = os.getenv("PORT"))
+    app.run(debug=True, use_reloader=False, port = os.getenv("PORT"), host="0.0.0.0")
     atexit.register(lambda: scheduler.shutdown())
     
     
