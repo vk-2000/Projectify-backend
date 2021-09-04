@@ -73,9 +73,6 @@ def updateDatabase():
     globalActive = 0
     globalRecovered = 0
 
-    
-
-    db.session.commit()
     countries = requests.get("https://api.covid19api.com/countries").json()
     countries = sorted(countries, key = lambda c : c["Country"])
     BASE = "https://api.covid19api.com/total/country/"
