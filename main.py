@@ -9,6 +9,7 @@ import schedule
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
+import os
 
 app = Flask(__name__)
 api = Api(app)
@@ -188,7 +189,7 @@ if __name__ == "__main__":
     scheduler.add_job(func=updateDatabase, trigger="interval", days=1)
     scheduler.start()
 
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=True, use_reloader=False, port = os.getenv("PORT"))
     atexit.register(lambda: scheduler.shutdown())
     
     
