@@ -13,7 +13,7 @@ import os
 
 app = Flask(__name__)
 api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' 
 db = SQLAlchemy(app)
 
 get_args = reqparse.RequestParser()
@@ -176,7 +176,7 @@ def reset():
 if __name__ == "__main__":
 
     
-    db.create_all()
+    # db.create_all()
 
 
     thread = threading.Thread(target=updateDatabase)
